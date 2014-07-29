@@ -16,7 +16,7 @@ import java.util.Vector;
 public class MergeSort {
 
 //area de datos
-  ArrayList<Integer> dato1 = new ArrayList<Integer>(200);
+ 
   ArrayList<Integer> dato2 = new ArrayList<Integer>(200);
   ArrayList<Integer> dato3 = new ArrayList<Integer>(200);
    
@@ -52,9 +52,22 @@ public class MergeSort {
      return data3;   
     }
         
-    public void mergeSort(ArrayList<Integer> data1){
-        
-        dato3=Merge(dato1,dato2);
+    public ArrayList<Integer> mergeSort(ArrayList<Integer> data1){
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        if (data1.size()==1) {
+            result=data1;
+        }
+        else{
+            int tamano=data1.size()/2;
+            ArrayList<Integer> temp1 = new ArrayList<Integer>(tamano);
+            ArrayList<Integer> temp2 = new ArrayList<Integer>(tamano);
+            for(int i=0;i==tamano;i++){
+                temp1.set(i,data1.get(i));
+                temp2.set(i,data1.get(i)+tamano);
+            }
+            result=Merge(temp1,temp1);
+        }
+        return result;
     }
 }
 
