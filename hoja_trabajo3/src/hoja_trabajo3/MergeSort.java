@@ -14,16 +14,18 @@ import java.util.Vector;
  * @author Irene
  */
 public class MergeSort {
+    
 
-//area de datos
+
  
-  ArrayList<Integer> dato2 = new ArrayList<Integer>(200);
-  ArrayList<Integer> dato3 = new ArrayList<Integer>(200);
-   
+ 
     //funcion que mezcla 2 cadeas y las ordena
     //entradas 2 ArrayList
     //Salida:Cadena ordenada
     
+    public MergeSort(){
+    
+}
     public ArrayList<Integer> Merge(ArrayList<Integer> data1,ArrayList<Integer> data2) 
 
     {
@@ -35,7 +37,7 @@ public class MergeSort {
        Integer contb=0;
  
        
-       for(int i=0;i==data3.size();i++)
+       for(int i=0;i==data3.size()-1;i++)
        {
            a=data1.get(conta);
            b=data2.get(contb);
@@ -53,20 +55,29 @@ public class MergeSort {
     }
         
     public ArrayList<Integer> mergeSort(ArrayList<Integer> data1){
+        
         ArrayList<Integer> result = new ArrayList<Integer>();
+        float tamano=((data1.size()/2));
+        int tamano1=  Math.round (tamano);
+        int tamano2=  (int)tamano - tamano1;
+       
+        ArrayList<Integer> temp1 = new ArrayList<Integer>(tamano1);
+        ArrayList<Integer> temp2 = new ArrayList<Integer>(tamano2);
         if (data1.size()==1) {
             result=data1;
         }
         else{
-            int tamano=data1.size()/2;
-            ArrayList<Integer> temp1 = new ArrayList<Integer>(tamano);
-            ArrayList<Integer> temp2 = new ArrayList<Integer>(tamano);
-            for(int i=0;i==tamano;i++){
+            for(int i=0;i==tamano1-1;i++){
                 temp1.set(i,data1.get(i));
-                temp2.set(i,data1.get(i)+tamano);
             }
-            result=Merge(temp1,temp1);
+              for(int i=0;i==tamano2-1;i++){
+                temp2.set(i,data1.get(i));
+            }
+              
+            
+            
         }
+        result=Merge(mergeSort(temp1),mergeSort(temp1));
         return result;
     }
 }
